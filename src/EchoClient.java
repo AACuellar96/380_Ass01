@@ -16,8 +16,7 @@ public final class EchoClient {
             String input;
             System.out.print("Client>");
             while(!(input= brIS.readLine()).equalsIgnoreCase("exit")){
-                System.out.println(input);
-                System.out.println("Server>" + br.readLine());
+                System.out.println("Server>" + input);
                 System.out.print ("Client>");
             }
             System.out.print(input);

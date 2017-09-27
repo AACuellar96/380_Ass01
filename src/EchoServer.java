@@ -16,7 +16,7 @@ public final class EchoServer {
                     System.out.printf("Client connected: %s%n", address);
                     OutputStream os = socket.getOutputStream();
                     PrintStream out = new PrintStream(os, true, "UTF-8");
-                    out.printf("Hi %s, thanks for connecting!%n", address);
+                    //out.printf("Hi %s, thanks for connecting!%n", address);
                 }
             }
         }

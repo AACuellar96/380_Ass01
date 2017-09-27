@@ -12,6 +12,20 @@ public final class EchoClient {
             InputStreamReader isr = new InputStreamReader(is, "UTF-8");
             BufferedReader br = new BufferedReader(isr);
             System.out.println(br.readLine());
+            BufferedReader brIS = new BufferedReader(new InputStreamReader(System.in));
+            String input;
+            System.out.print("Client>");
+            while(!(input= brIS.readLine()).equalsIgnoreCase("exit")){
+                System.out.println(input);
+                System.out.println("Server>" + br.readLine());
+                System.out.print ("Client>");
+            }
+            System.out.print(input);
+            is.close();
+            isr.close();
+            br.close();
+            brIS.close();
+            socket.close();
         }
     }
 }

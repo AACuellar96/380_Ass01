@@ -16,7 +16,17 @@ public final class EchoServer {
                     System.out.printf("Client connected: %s%n", address);
                     OutputStream os = socket.getOutputStream();
                     PrintStream out = new PrintStream(os, true, "UTF-8");
-                    //out.printf("Hi %s, thanks for connecting!%n", address);
+                    out.printf("Hi %s, thanks for connecting!%n", address);
+                    BufferedReader in = new BufferedReader(new InputStreamReader( socket.getInputStream()));
+                    String input;
+                    while((input=in.readLine())!=null){
+                        if(input.equalsIgnoreCase(("exit")))
+                            break;
+                    }
+                    System.out.printf("Client disconected: %s%n", address);
+                    out.close();
+                    in.close();
+                    socket.close();
                 }
             }
         }

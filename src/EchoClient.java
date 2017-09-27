@@ -19,7 +19,6 @@ public final class EchoClient {
                 System.out.println("Server>" + input);
                 System.out.print ("Client>");
             }
-            System.out.print(input);
             is.close();
             isr.close();
             br.close();

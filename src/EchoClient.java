@@ -2,6 +2,7 @@
 import java.io.InputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 public final class EchoClient {
@@ -13,11 +14,15 @@ public final class EchoClient {
             BufferedReader br = new BufferedReader(isr);
             System.out.println(br.readLine());
             BufferedReader brIS = new BufferedReader(new InputStreamReader(System.in));
-            String input;
+            PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
             System.out.print("Client>");
-            while(!(input= brIS.readLine()).equalsIgnoreCase("exit")){
-                System.out.println("Server>" + input);
-                System.out.print ("Client>");
+            String inp;
+            while((inp=brIS.readLine())!=null){
+                if(inp.equalsIgnoreCase("exit"))
+                    break;
+                out.println(inp);
+                System.out.println("Server>"+br.readLine());
+                System.out.print("Client>");
             }
             is.close();
             isr.close();
